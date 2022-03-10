@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+  @@include('html/_head.html',{ "title":"Название" })
+  <body>
+    <div class="wrapper">
+      @@include('html/_header.html',{})
+      <main class="page">
+        <button class="btn">Click</button>
+        <div class="block1"></div>
+
+        <br /><br /><br /><br />
+
+        <label class="checkbox">
+          <input type="checkbox" class="checkbox__input" />
+          <span class="checkbox__text">
+            <span>Text 1</span>
+          </span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" class="checkbox__input" />
+          <span class="checkbox__text">
+            <span>Text 1</span>
+          </span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" class="checkbox__input" />
+          <span class="checkbox__text">
+            <span>Text 1</span>
+          </span>
+        </label>
+
+        <br /><br /><br /><br />
+      </main>
+      @@include('html/_footer.html',{})
+    </div>
+
+    @@include('html/_js.html', {})
+  </body>
+</html>

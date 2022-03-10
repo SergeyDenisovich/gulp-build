@@ -1,0 +1,137 @@
+@use 'sass:math';
+
+// < Миксины ===================================================================
+@import '_mixins';
+// </ Миксины
+// < ШРИФТЫ ====================================================================
+
+// <Подключение шрифтов =========================================================
+// &display=swap&subset=cyrillic-ext
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto:wght@400;500;700;900&display=swap&subset=cyrillic-ext');
+@import '_fonts';
+// </ Подключение шрифтов =======================================================
+
+//<Иконочные шрифты =============================================================
+// @import '_icons';
+//</ Иконочные шрифты ===========================================================
+
+// <Шрифт по умолчанию ==========================================================
+$fontFamily: 'Roboto';
+$fontSize: 16px;
+// </ Шрифт по умолчанию ========================================================
+
+// </ ШРИФТЫ ====================================================================
+
+// <ПЕРЕМЕННЫЕ ==================================================================
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1270;
+$md1: $maxWidthContainer + 15; // 15 - padding
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+// <Обнуление, общие параметры ==================================================
+@import '_null';
+// </ Обнуление, общие параметры ================================================
+
+// <Подключение базовых стилей, шаблонов (заготовок) и вспомагательных классов
+@import '_base';
+@import '_ui';
+// </ Подключение базовых стилей, шаблонов (заготовок) и вспомагательных классов
+
+// < Оболочка   =================================================================
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+// </ Оболочка ==================================================================
+
+// < Основная сетка  ============================================================
+._container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  padding: 0 20px; // при отзывчивой верстке (+ 40 добавить к $maxWidthContainer)
+  // @media (max-width: $md1+px) {
+  //   max-width: 970px;
+  // }
+  // @media (max-width: $md2+px) {
+  //   max-width: 750px;
+  // }
+  // @media (max-width: $md3+px) {
+  //   max-width: none;
+  //   padding: 0 10px;
+  // }
+}
+// < /Основная сетка ============================================================
+
+// < Подключение файлов стилей страниц и элементов ==============================
+@import '_header';
+@import '_footer';
+// </ Подключение файлов стилей страниц и элементов =============================
+// ==============================================================================
+.page {
+  flex: 1 1 auto;
+}
+
+.block1 {
+  height: 400px;
+  background-color: aqua;
+}
+
+.checkbox {
+  position: relative;
+  display: block;
+  margin: 0px 0px 20px 0px;
+
+  &:not(:last-child) {
+    margin-bottom: 0px 0px 0px 0px;
+  }
+  // .checkbox__input
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:checked + .checkbox__text:before {
+      border: 3px solid green;
+    }
+
+    &:checked + .checkbox__text:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 10px;
+      height: 8px;
+      background-color: green;
+    }
+
+    &:checked + .checkbox__text {
+      font-weight: 600;
+    }
+  }
+
+  // .checkbox__text
+  &__text {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    color: grey;
+    &:before {
+      content: '';
+      margin: 0px 20px 0px 0px;
+      flex: 0 0 20px;
+      width: 20px;
+      height: 18px;
+      background-color: #fff;
+      border: 1px solid grey;
+    }
+  }
+}
